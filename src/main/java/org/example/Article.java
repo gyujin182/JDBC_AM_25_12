@@ -1,36 +1,40 @@
 package org.example;
 
-import java.time.LocalDateTime;
-
 public class Article {
     private int id;
+    private String regDate;
+    private String updateDate;
     private String title;
     private String body;
-    private LocalDateTime regdate;
-    private LocalDateTime updatedate;
 
-    public LocalDateTime getRegdate() {
-        return regdate;
-    }
-
-    public void setRegdate(LocalDateTime regdate) {
-        this.regdate = regdate;
-    }
-
-    public LocalDateTime getUpdatedate() {
-        return updatedate;
-    }
-
-    public void setUpdatedate(LocalDateTime updatedate) {
-        this.updatedate = updatedate;
-    }
-
-    public Article(LocalDateTime regadte, LocalDateTime updatedate, String title, String body) {
+    public Article(int id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.regdate = regadte;
-        this.updatedate = updatedate;
+    }
+
+    public Article(int id, String regDate, String updateDate, String title, String body) {
+        this.id = id;
+        this.regDate = regDate;
+        this.updateDate = updateDate;
+        this.title = title;
+        this.body = body;
+    }
+
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
 
     public int getId() {
@@ -61,6 +65,8 @@ public class Article {
     public String toString() {
         return "Article{" +
                 "id=" + id +
+                ", regDate='" + regDate + '\'' +
+                ", updateDate='" + updateDate + '\'' +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 '}';

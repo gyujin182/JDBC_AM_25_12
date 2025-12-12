@@ -7,9 +7,6 @@ import java.sql.SQLException;
 
 public class JDBCInsertTest {
     public static void main(String[] args) {
-
-    }
-    public static void con(String title,String body) {
         Connection conn = null;
         PreparedStatement pstmt = null;
 
@@ -22,14 +19,14 @@ public class JDBCInsertTest {
             String sql = "INSERT INTO article";
             sql += " SET regDate = NOW(),";
             sql += "updateDate = NOW(),";
-            sql += "title ='"+ title +"',";
-            sql += "`body` ='"+ body +"';";
+            sql += "title = CONCAT('제목', SUBSTRING(RAND() * 1000 FROM 1 FOR 2)),";
+            sql += "`body` = CONCAT('내용', SUBSTRING(RAND() * 1000 FROM 1 FOR 2));";
 
             System.out.println(sql);
 
             pstmt = conn.prepareStatement(sql);
 
-            int affectedRow = pstmt.executeUpdate();
+            int affectedRow =  pstmt.executeUpdate();
 
             System.out.println("affectedRow = " + affectedRow);
 
@@ -54,5 +51,6 @@ public class JDBCInsertTest {
             }
         }
 
+
     }
-    }
+}
