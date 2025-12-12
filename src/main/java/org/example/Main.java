@@ -1,11 +1,17 @@
 package org.example;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("==프로그램 시작==");
 
         Scanner sc = new Scanner(System.in);
@@ -28,9 +34,9 @@ public class Main {
                 String title = sc.nextLine().trim();
                 System.out.print("내용 : ");
                 String body = sc.nextLine().trim();
-
-                Article article = new Article(id, title, body);
-                articles.add(article);
+                LocalDateTime now = LocalDateTime.now();
+                Article article = new Article(now,now,title, body);
+                JDBCInsertTest.con(title,body);
 
                 lastArticleId++;
                 System.out.println(article);
