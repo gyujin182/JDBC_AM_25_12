@@ -1,6 +1,6 @@
 package org.example.test;
 
-import org.example.Article;
+import org.example.dto.Article;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -35,7 +35,8 @@ public class JDBCSelectTest {
                 String updateDate = rs.getString("updateDate");
                 String title = rs.getString("title");
                 String body = rs.getString("body");
-                Article article = new Article(id, regDate, updateDate, title, body);
+                String name =  rs.getString("name");
+                Article article = new Article(id, regDate, updateDate, title, body,name);
                 articles.add(article);
             }
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.dto;
 
 import java.util.Map;
 
@@ -8,6 +8,7 @@ public class Article {
     private String updateDate;
     private String title;
     private String body;
+    private String name;
 
     public Article(int id, String title, String body) {
         this.id = id;
@@ -15,12 +16,21 @@ public class Article {
         this.body = body;
     }
 
-    public Article(int id, String regDate, String updateDate, String title, String body) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Article(int id, String regDate, String updateDate, String title, String body, String name) {
         this.id = id;
         this.regDate = regDate;
         this.updateDate = updateDate;
         this.title = title;
         this.body = body;
+        this.name =  name;
     }
 
     public Article(Map<String, Object> articleMap) {
@@ -29,6 +39,7 @@ public class Article {
         this.updateDate = (String) articleMap.get("updateDate");
         this.title = (String) articleMap.get("title");
         this.body = (String) articleMap.get("body");
+        this.name = (String) articleMap.get("name");
     }
 
     public String getRegDate() {
